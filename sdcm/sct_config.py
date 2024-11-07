@@ -1533,6 +1533,10 @@ class SCTConfiguration(dict):
         dict(name="data_volume_disk_iops", env="SCT_DATA_VOLUME_DISK_IOPS",
              type=int,
              help="Number of iops for ebs type io2|io3|gp3"),
+        # source: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/ec2/client/create_volume.html
+        dict(name="data_volume_disk_throughput", env="SCT_DATA_VOLUME_DISK_THROUGHPUT",
+             type=int,
+             help="Throughput in MiB/sec for ebs type gp3. Min is 125. Max is 1000."),
         dict(name="run_db_node_benchmarks", env="SCT_RUN_DB_NODE_BENCHMARKS",
              type=boolean,
              help="Flag for running db node benchmarks before the tests"),
