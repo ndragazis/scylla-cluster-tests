@@ -40,6 +40,3 @@ space_node_threshold: 64424
 
 run_db_node_benchmarks: true
 store_perf_results: true
-
-send_email: true
-email_recipients: ['nikolaos.dragazis@scylladb.com']
