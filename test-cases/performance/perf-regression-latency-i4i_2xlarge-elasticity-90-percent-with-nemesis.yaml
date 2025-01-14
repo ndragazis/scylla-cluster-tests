@@ -38,7 +38,7 @@ nemesis_seed: '019'
 nemesis_interval: 5
 nemesis_during_prepare: false
 
-user_prefix: 'elasticity-test-nemesis'
+#user_prefix: 'elasticity-test-nemesis'
 space_node_threshold: 6442450
 ami_id_db_scylla_desc: 'VERSION_DESC'
 round_robin: true
@@ -47,10 +47,10 @@ backtrace_decoding: false
 print_kernel_callstack: true
 
 store_perf_results: true
-email_recipients: ["yarongilor@scylladb.com"]
+email_recipients: ["nikolaos.dragazis@scylladb.com"]
 # use_prepared_loaders: true
 use_hdr_cs_histogram: true
-email_subject_postfix: 'elasticity test disruptive nemesis'
+email_subject_postfix: 'elasticity test disruptive nemesis (reproducer for #22236)'
 nemesis_double_load_during_grow_shrink_duration: 0
 parallel_node_operations: false
 
@@ -60,3 +60,11 @@ client_encrypt: true
 
 stress_image:
   cassandra-stress: 'scylladb/cassandra-stress:3.17.0'
+
+scylla_version: '2024.3.0~dev-20250105.e9d8219f7656'
+
+# Options for running SCT runner locally
+enable_argus: false
+
+# Command for local run:
+# hydra run-test longevity_test.LongevityTest.test_custom_time --backend aws --config test-cases/performance/perf-regression-latency-i4i_2xlarge-elasticity-90-percent-with-nemesis.yaml --config configurations/kms-ear.yaml --config configurations/network_config/test_communication_public.yaml
