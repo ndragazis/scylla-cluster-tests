@@ -61,7 +61,8 @@ client_encrypt: true
 stress_image:
   cassandra-stress: 'scylladb/cassandra-stress:3.17.0'
 
-scylla_version: '2024.3.0~dev-20250105.e9d8219f7656'
+#scylla_version: '2024.3.0~dev-20250105.e9d8219f7656'
+scylla_version: 'enterprise:latest'
 
 # Options for running SCT runner locally
 enable_argus: false
