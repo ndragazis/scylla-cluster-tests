@@ -157,7 +157,7 @@ class KeyStore:  # pylint: disable=too-many-public-methods
 
     def sync(self, keys, local_path, permissions=0o777):
         """Syncs the local and remote S3 copies"""
-        with ThreadPoolExecutor(max_workers=len(keys)) as executor:
+        with ThreadPoolExecutor(max_workers=1) as executor:
             args = [(key, local_path, permissions) for key in keys]
             list(executor.map(lambda p: self.get_obj_if_needed(*p), args))
 
