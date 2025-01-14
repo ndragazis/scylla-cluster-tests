@@ -40,7 +40,7 @@ nemesis_during_prepare: false
 
 #user_prefix: 'elasticity-test-nemesis'
 space_node_threshold: 6442450
-ami_id_db_scylla_desc: 'VERSION_DESC'
+#ami_id_db_scylla_desc: 'VERSION_DESC'
 round_robin: true
 append_scylla_args: '--blocked-reactor-notify-ms 5 --abort-on-lsa-bad-alloc 1 --abort-on-seastar-bad-alloc --abort-on-internal-error 1 --abort-on-ebadf 1'
 backtrace_decoding: false
@@ -64,8 +64,10 @@ stress_image:
 #scylla_version: '2024.3.0~dev-20250105.e9d8219f7656'
 scylla_version: 'enterprise:latest'
 
+post_behavior_db_nodes: 'keep'
+
 # Options for running SCT runner locally
-enable_argus: false
+#enable_argus: false
 
 # Command for local run:
 # hydra run-test longevity_test.LongevityTest.test_custom_time --backend aws --config test-cases/performance/perf-regression-latency-i4i_2xlarge-elasticity-90-percent-with-nemesis.yaml --config configurations/kms-ear.yaml --config configurations/network_config/test_communication_public.yaml
